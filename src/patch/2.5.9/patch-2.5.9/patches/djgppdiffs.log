@@ -1,0 +1,122 @@
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|2004-03-19  Juan Manuel Guerrero  <st001906@hrz1.hrz.tu-darmstadt.de>
+|
+|	* quotearg.h: Add quoting styles for DOS and NT shells.  Add
+|	"default" pseudo-style.
+|	[DEFAULT_QUOTING_STYLE]: Now defaults to `default_quoting_style'.
+|
+|	* quotearg.c [DEFAULT_OS_QUOTING_STYLE]: If not defined, make it
+|	default to `shell_quoting_style'.
+|	[DEFAULT_OS_QUOTING_STYLE_DCL]: Use if defined.
+|	(quoting_style_args): Add quoting styles for DOS and NT shells.
+|	Add "default" pseudo-style.
+|	(set_quoting_style): If S is `default_quoting_style', use whatever
+|	DEFAULT_OS_QUOTING_STYLE yields.
+|	(quotearg_buffer): Support quoting suitable for DOS and NT shells.
+|
+|	* quotesys.c (quote_system_arg) [quote_system_arg_func]: If this
+|	hook for quoting `system' arguments on non-Posix platforms is
+|	defined, call it instead of the usual code.
+|
+|	* pc/pc_quote.c: New file.
+|	(dos_nt_quoting): New function to determine the default quoting
+|	style suitable for the user shell on MS-DOS/MS-Windows systems.
+|
+|	* pc/djgpp/config_h.sed: Define DEFAULT_OS_QUOTING_STYLE to be a
+|	call to `dos_nt_quoting', and define DEFAULT_OS_QUOTING_STYLE_DCL
+|	to declare its prototype.
+|	Define filename_char_eq to compare characters regardless of the
+|	letter-case.
+|
+|	* addext.c (addext): Support numbered backups under DOS 8+3 file
+|	name limits.
+|
+|	* backupfile.c (max_backup_version): Under HAVE_DOS_FILE_NAMES,
+|	don't give up on file names unless they are shorter than the
+|	original file's name.
+|	(version_number): Use filename_char_eq to compare file names on
+|	case-insensitive filesystems.  Support numbered backups under 8+3
+|	file name limits.
+|
+|
+|
+|diff -apruNU5 patch-2.5.4.orig/addext.c patch-2.5.4.djgpp/addext.c
+|--- patch-2.5.4.orig/addext.c	1999-01-18 17:02:28.000000000 +0000
+|+++ patch-2.5.4.djgpp/addext.c	2004-03-16 01:49:08.000000000 +0000
+--------------------------
+Patching file addext.c using Plan A...
+Hunk #1 succeeded at 95 (offset 15 lines).
+Not setting time of file addext.c (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -apruNU5 patch-2.5.4.orig/backupfile.c patch-2.5.4.djgpp/backupfile.c
+|--- patch-2.5.4.orig/backupfile.c	1999-01-18 17:02:28.000000000 +0000
+|+++ patch-2.5.4.djgpp/backupfile.c	2004-03-16 01:29:42.000000000 +0000
+--------------------------
+Patching file backupfile.c using Plan A...
+Hunk #1 FAILED at 21.
+Hunk #2 succeeded at 199 with fuzz 2 (offset 9 lines).
+Hunk #3 succeeded at 223 (offset 9 lines).
+Not setting time of file backupfile.c (time mismatch)
+1 out of 3 hunks FAILED -- saving rejects to file backupfile.c.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -apruNU5 patch-2.5.4.orig/patch.c patch-2.5.4.djgpp/patch.c
+|--- patch-2.5.4.orig/patch.c	1999-08-30 06:20:08.000000000 +0000
+|+++ patch-2.5.4.djgpp/patch.c	2004-03-16 01:08:10.000000000 +0000
+--------------------------
+Patching file patch.c using Plan A...
+Hunk #1 succeeded at 135 (offset 2 lines).
+Not setting time of file patch.c (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -apruNU5 patch-2.5.4.orig/pc/pc_quote.c patch-2.5.4.djgpp/pc/pc_quote.c
+|--- patch-2.5.4.orig/pc/pc_quote.c	1970-01-01 00:00:00.000000000 +0000
+|+++ patch-2.5.4.djgpp/pc/pc_quote.c	1998-03-28 14:57:06.000000000 +0000
+--------------------------
+Patching file pc/pc_quote.c using Plan A...
+Hunk #1 succeeded at 1.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -apruNU5 patch-2.5.4.orig/quotearg.c patch-2.5.4.djgpp/quotearg.c
+|--- patch-2.5.4.orig/quotearg.c	1999-08-23 09:55:54.000000000 +0000
+|+++ patch-2.5.4.djgpp/quotearg.c	2004-03-18 23:10:56.000000000 +0000
+--------------------------
+Patching file quotearg.c using Plan A...
+Hunk #1 FAILED at 25.
+Hunk #2 FAILED at 86.
+Hunk #3 succeeded at 146 (offset 10 lines).
+Hunk #4 FAILED at 183.
+Hunk #5 FAILED at 200.
+Hunk #6 FAILED at 293.
+Not setting time of file quotearg.c (time mismatch)
+5 out of 6 hunks FAILED -- saving rejects to file quotearg.c.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -apruNU5 patch-2.5.4.orig/quotearg.h patch-2.5.4.djgpp/quotearg.h
+|--- patch-2.5.4.orig/quotearg.h	1999-08-09 23:09:12.000000000 +0000
+|+++ patch-2.5.4.djgpp/quotearg.h	2004-03-17 01:41:46.000000000 +0000
+--------------------------
+Patching file quotearg.h using Plan A...
+Hunk #1 FAILED at 18.
+Not setting time of file quotearg.h (time mismatch)
+1 out of 1 hunk FAILED -- saving rejects to file quotearg.h.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -apruNU5 patch-2.5.4.orig/quotesys.c patch-2.5.4.djgpp/quotesys.c
+|--- patch-2.5.4.orig/quotesys.c	1998-03-15 14:44:46.000000000 +0000
+|+++ patch-2.5.4.djgpp/quotesys.c	2004-03-16 00:09:56.000000000 +0000
+--------------------------
+Patching file quotesys.c using Plan A...
+Hunk #1 succeeded at 35.
+Hunk #2 succeeded at 126.
+Not setting time of file quotesys.c (time mismatch)
+done

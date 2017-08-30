@@ -1,0 +1,161 @@
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|This patch remembers backup file names patch has already created
+|in a binary tree, and prevents patch from overwriting backup
+|files it has created before. The bug can be reproduced as follows:
+|
+|	$ cat > f
+|	< one
+|
+|	$ cat > f.patch
+|	<--- f.orig      2003-04-09 01:48:01.000000000 +0200
+|	<+++ f   2003-04-09 01:49:17.000000000 +0200
+|	<@@ -2 +2 @@
+|	<-one
+|	<+two
+|	<--- f.orig      2003-04-09 01:48:01.000000000 +0200
+|	<+++ f   2003-04-09 01:49:17.000000000 +0200
+|	<@@ -2 +2 @@
+|	<-two
+|	<+three
+|
+|	$ patch -p0 < f.patch
+|	> patching file f
+|	> Hunk #1 succeeded at 1 (offset -1 lines).
+|	> patching file f
+|	> Hunk #1 succeeded at 1 (offset -1 lines).
+|
+|	$ cat f.orig
+|	> one
+|
+|	$ rm f f.orig f.patch
+|
+|
+|Here is another test case with hard links between source files.
+|
+|	$ cat > f
+|	< one
+|
+|	$ ln f g
+|	$ cat > fg.patch
+|	<--- f.orig      2003-04-09 01:48:01.000000000 +0200
+|	<+++ f   2003-04-09 01:49:17.000000000 +0200
+|	<@@ -2 +2 @@
+|	<-one
+|	<+two
+|	<--- g.orig      2003-04-09 01:48:01.000000000 +0200
+|	<+++ g   2003-04-09 01:49:17.000000000 +0200
+|	<@@ -2 +2 @@
+|	<-one
+|	<+two
+|
+|	$ patch -p0 < fg.patch
+|	> patching file f
+|	> Hunk #1 succeeded at 1 (offset -1 lines).
+|	> patching file g
+|	> Hunk #1 succeeded at 1 (offset -1 lines).
+|
+|	$ cat f.orig
+|	> one
+|
+|	$ cat g.orig
+|	> one
+|
+|	$ rm f f.orig g g.orig fg.patch
+|
+|This test case failed with a Permission denied error with a previous
+|version of this patch:
+|
+|	$ echo 1 > f
+|	$ echo 2 > f.new
+|	$ diff -Nu f f.new > f.diff
+|	$ mv f.new f
+|	$ echo 3 > f.new
+|	$ diff -Nu f f.new >> f.diff
+|	$ rm f.new
+|	$ echo 1 > f
+|	$ chmod a=r f
+|	$ strace -o ../log patch -p0 --backup < f.diff
+|	> patching file f
+|	> patching file f
+|
+|Index: patch-2.5.9/Makefile.in
+|===================================================================
+|--- patch-2.5.9.orig/Makefile.in
+|+++ patch-2.5.9/Makefile.in
+--------------------------
+Patching file Makefile.in using Plan A...
+Hunk #1 FAILED at 62.
+Hunk #2 FAILED at 78.
+Not setting time of file Makefile.in (time mismatch)
+2 out of 2 hunks FAILED -- saving rejects to file Makefile.in.rej
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|Index: patch-2.5.9/configure.ac
+|===================================================================
+|--- patch-2.5.9.orig/configure.ac
+|+++ patch-2.5.9/configure.ac
+--------------------------
+Patching file configure.ac using Plan A...
+Hunk #1 succeeded at 64.
+Not setting time of file configure.ac (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|Index: patch-2.5.9/m4/hash.m4
+|===================================================================
+|--- /dev/null
+|+++ patch-2.5.9/m4/hash.m4
+--------------------------
+Patching file m4/hash.m4 using Plan A...
+Hunk #1 succeeded at 1.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|Index: patch-2.5.9/util.c
+|===================================================================
+|--- patch-2.5.9.orig/util.c
+|+++ patch-2.5.9/util.c
+--------------------------
+Patching file util.c using Plan A...
+Hunk #1 succeeded at 45.
+Hunk #2 succeeded at 115 (offset 43 lines).
+Hunk #3 succeeded at 174 (offset 43 lines).
+Hunk #4 succeeded at 185 (offset 43 lines).
+Hunk #5 succeeded at 228 (offset 52 lines).
+Hunk #6 succeeded at 238 (offset 52 lines).
+Hunk #7 succeeded at 1078 (offset 52 lines).
+Not setting time of file util.c (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|Index: patch-2.5.9/hash.c
+|===================================================================
+|--- /dev/null
+|+++ patch-2.5.9/hash.c
+--------------------------
+Patching file hash.c using Plan A...
+Hunk #1 succeeded at 1.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|Index: patch-2.5.9/hash.h
+|===================================================================
+|--- /dev/null
+|+++ patch-2.5.9/hash.h
+--------------------------
+Patching file hash.h using Plan A...
+Hunk #1 succeeded at 1.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|Index: patch-2.5.9/m4/nanosecond_stat.m4
+|===================================================================
+|--- /dev/null
+|+++ patch-2.5.9/m4/nanosecond_stat.m4
+--------------------------
+Patching file m4/nanosecond_stat.m4 using Plan A...
+Hunk #1 succeeded at 1.
+done

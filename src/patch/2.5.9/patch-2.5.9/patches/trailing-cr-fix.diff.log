@@ -1,0 +1,29 @@
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|From: "Paul Eggert" <eggert@twinsun.com>
+|Date: Wed,  2 Jul 2003 15:22:09 -0700
+|Subject: Re: patch bug with carriage returns
+|
+|	> From: Andreas Gruenbacher <agruen@suse.de>
+|	> Date: Mon, 30 Jun 2003 13:43:33 +0200
+|
+|	> unified diffs with CRLF line endings are not recognized correctly
+|	> anymore in 2.5.9. Here is a fix.
+|
+|	Thanks for the bug report.  Unfortunately that fix doesn't handle the
+|	case correctly where a Unix file contains a trailing CR in a header
+|	line that is output by "diff -p" (trailing CR and all).
+|
+|	How about the following patch instead?
+|
+|--- patch-2.5.9.orig/pch.c	2003/05/20 14:03:17	1.44
+|+++ patch-2.5.9/pch.c	2003/07/02 22:19:21	1.45
+--------------------------
+Patching file pch.c using Plan A...
+Hunk #1 succeeded at 1.
+Hunk #2 succeeded at 366.
+Hunk #3 succeeded at 415.
+Not setting time of file pch.c (time mismatch)
+Hmm...  Ignoring the trailing garbage.
+done

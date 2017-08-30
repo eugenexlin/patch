@@ -1,0 +1,18 @@
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|Index: patch-2.5.9/patch.c
+|===================================================================
+|--- patch-2.5.9.orig/patch.c	2003-06-05 00:22:56.000000000 +0200
+|+++ patch-2.5.9/patch.c	2003-06-05 00:23:16.000000000 +0200
+--------------------------
+Patching file patch.c using Plan A...
+Hunk #1 succeeded at 92 (offset 1 line).
+Hunk #2 succeeded at 1045 (offset -52 lines).
+Hunk #3 succeeded at 1065 (offset -52 lines).
+Hunk #4 succeeded at 1114 (offset -52 lines).
+Hunk #5 succeeded at 1134 (offset -52 lines).
+Hunk #6 succeeded at 1153 (offset -52 lines).
+Hunk #7 succeeded at 1173 (offset -52 lines).
+Not setting time of file patch.c (time mismatch)
+done

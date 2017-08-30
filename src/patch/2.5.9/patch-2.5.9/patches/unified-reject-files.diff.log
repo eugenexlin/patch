@@ -1,0 +1,125 @@
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|Generate unified diff style reject files. Also include the C function names
+|in reject files whenever possible.
+|
+|	$ cat > f.orig
+|	< a() {
+|	< 2
+|	< 3
+|	<
+|	< 5
+|	< 6
+|	< }
+|
+|	$ sed -e 's/5/5a/' f.orig > f
+|	$ diff -U2 -p f.orig f > f.diff
+|	$ sed -e 's/5/5a/' -e 's/6/6x/' f.orig > f
+|	$ ./patch -F0 -s --no-backup-if-mismatch f --reject-unified < f.diff
+|	> 1 out of 1 hunk FAILED -- saving rejects to file f.rej
+|
+|	$ cat f.rej
+|	> @@ -3,5 +3,5 @@ a() {
+|	>  3
+|	>  
+|	> -5
+|	> +5a
+|	>  6
+|	>  }
+|
+|	$ ./patch -F0 -s --no-backup-if-mismatch f < f.diff
+|	> 1 out of 1 hunk FAILED -- saving rejects to file f.rej
+|
+|	$ cat f.rej
+|	> *************** a() {
+|	> *** 3,7 ****
+|	>   3
+|	>   
+|	> - 5
+|	>   6
+|	>   }
+|	> --- 3,7 ----
+|	>   3
+|	>   
+|	> + 5a
+|	>   6
+|	>   }
+|
+|	$ diff -Nu -p /dev/null f.orig > f2.diff
+|	$ ./patch -F0 -s --no-backup-if-mismatch f --reject-unified < f2.diff
+|	> Patch attempted to create file f, which already exists.
+|	> 1 out of 1 hunk FAILED -- saving rejects to file f.rej
+|
+|	$ cat f.rej
+|	> @@ -0,0 +1,7 @@
+|	> +a() {
+|	> +2
+|	> +3
+|	> +
+|	> +5
+|	> +6
+|	> +}
+|
+|	$ rm -f f f.orig f.rej f.diff f2.diff
+|
+|Index: patch-2.5.9/pch.c
+|===================================================================
+|--- patch-2.5.9.orig/pch.c
+|+++ patch-2.5.9/pch.c
+--------------------------
+Patching file pch.c using Plan A...
+Hunk #1 succeeded at 68.
+Hunk #2 succeeded at 889.
+Hunk #3 succeeded at 1291.
+Hunk #4 succeeded at 1908.
+Not setting time of file pch.c (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|Index: patch-2.5.9/pch.h
+|===================================================================
+|--- patch-2.5.9.orig/pch.h
+|+++ patch-2.5.9/pch.h
+--------------------------
+Patching file pch.h using Plan A...
+Hunk #1 succeeded at 25.
+Not setting time of file pch.h (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|Index: patch-2.5.9/patch.man
+|===================================================================
+|--- patch-2.5.9.orig/patch.man
+|+++ patch-2.5.9/patch.man
+--------------------------
+Patching file patch.man using Plan A...
+Hunk #1 succeeded at 526 with fuzz 2 (offset 9 lines).
+Not setting time of file patch.man (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|Index: patch-2.5.9/common.h
+|===================================================================
+|--- patch-2.5.9.orig/common.h
+|+++ patch-2.5.9/common.h
+--------------------------
+Patching file common.h using Plan A...
+Hunk #1 succeeded at 147 (offset 1 line).
+Not setting time of file common.h (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|Index: patch-2.5.9/patch.c
+|===================================================================
+|--- patch-2.5.9.orig/patch.c
+|+++ patch-2.5.9/patch.c
+--------------------------
+Patching file patch.c using Plan A...
+Hunk #1 succeeded at 550 (offset 28 lines).
+Hunk #2 succeeded at 609 (offset 28 lines).
+Hunk #3 succeeded at 812 with fuzz 2 (offset 31 lines).
+Hunk #4 succeeded at 963 (offset 31 lines).
+Hunk #5 succeeded at 997 (offset 31 lines).
+Not setting time of file patch.c (time mismatch)
+done

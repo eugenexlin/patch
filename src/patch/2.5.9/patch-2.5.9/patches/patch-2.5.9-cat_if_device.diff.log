@@ -1,0 +1,35 @@
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|Index: patch-2.5.9/patch.c
+|===================================================================
+|--- patch-2.5.9.orig/patch.c
+|+++ patch-2.5.9/patch.c
+--------------------------
+Patching file patch.c using Plan A...
+Hunk #1 succeeded at 444.
+Not setting time of file patch.c (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|Index: patch-2.5.9/util.c
+|===================================================================
+|--- patch-2.5.9.orig/util.c
+|+++ patch-2.5.9/util.c
+--------------------------
+Patching file util.c using Plan A...
+Hunk #1 succeeded at 57 (offset -8 lines).
+Hunk #2 succeeded at 196 (offset -11 lines).
+Not setting time of file util.c (time mismatch)
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|Index: patch-2.5.9/util.h
+|===================================================================
+|--- patch-2.5.9.orig/util.h
+|+++ patch-2.5.9/util.h
+--------------------------
+Patching file util.h using Plan A...
+Hunk #1 succeeded at 57.
+Not setting time of file util.h (time mismatch)
+done

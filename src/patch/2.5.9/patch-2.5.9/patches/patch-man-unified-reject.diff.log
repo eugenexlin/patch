@@ -1,0 +1,11 @@
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- patch-2.5.9/patch.man
+|+++ patch-2.5.9/patch.man
+--------------------------
+Patching file patch.man using Plan A...
+Hunk #1 FAILED at 517.
+Not setting time of file patch.man (time mismatch)
+1 out of 1 hunk FAILED -- saving rejects to file patch.man.rej
+done

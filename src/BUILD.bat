@@ -1,0 +1,1 @@
+gcc patch/2.5.9/patch-2.5.9-src/patch.c -o patch.exe -Ipatch/2.5.9/patch-2.5.9 -Ipatch/2.5.9/patch-2.5.9-src

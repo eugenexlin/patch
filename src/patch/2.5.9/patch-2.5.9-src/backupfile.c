@@ -196,7 +196,7 @@ max_backup_version (const char *file, const char *dir)
       if (!REAL_DIR_ENTRY (dp)
 	  /* Under DOS 8+3 file name limits, backup extensions
 	     may consume part of the original name.  */
-	  || (! HAVE_DOS_FILE_NAMES && NLENGTH (dp) < file_name_length + 4)
+	  || (NLENGTH (dp) < file_name_length + 4)
 	  || NLENGTH (dp) < file_name_length)
 	continue;
 
@@ -231,7 +231,7 @@ version_number (const char *base, const char *backup, size_t base_length)
     ;
   if (p[0] == '.' && p[1] == '~')
     p += 2;
-  else if (! HAVE_DOS_FILE_NAMES)
+  else if (true)
     return 0;
   else if (*p == '.')	/* the case of foo.99~ vs foo.c */
     p++;

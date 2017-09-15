@@ -231,7 +231,7 @@ version_number (const char *base, const char *backup, size_t base_length)
     ;
   if (p[0] == '.' && p[1] == '~')
     p += 2;
-  else if (true)
+  else if (1)
     return 0;
   else if (*p == '.')	/* the case of foo.99~ vs foo.c */
     p++;

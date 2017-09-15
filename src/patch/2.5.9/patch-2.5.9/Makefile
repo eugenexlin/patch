@@ -33,7 +33,7 @@ INSTALL_PROGRAM = /bin/install.exe -cp
 INSTALL_DATA = /bin/install.exe -cp
 transform = s&$$&&;s&^&&;s/i386-pc-mingw32//
 
-CFLAGS =  -Wall -O3 -fms-extensions -mms-bitfields -fno-exceptions -fomit-frame-pointer -march=i386 -ffast-math  
+CFLAGS =  -Wall -O3 -fms-extensions -mms-bitfields -fno-exceptions -fomit-frame-pointer -m32 -march=i386 -ffast-math  
 CPPFLAGS =        -ID:/Progra~1/GnuWin32/include    
 DEFS = -DINSTALLDIR=\"$(prefix)\"  -DHAVE_CONFIG_H
 EXEEXT = .exe

@@ -34,12 +34,12 @@ INSTALL_DATA = /bin/install.exe -cp
 transform = s&$$&&;s&^&&;s/i386-pc-mingw32//
 
 CFLAGS =  -Wall -O3 -fms-extensions -mms-bitfields -fno-exceptions -fomit-frame-pointer -m32 -march=i386 -ffast-math  
-CPPFLAGS =        -ID:/Progra~1/GnuWin32/include    
+CPPFLAGS =        -I/cygdrive/c/cygwin64/lib   
 DEFS = -DINSTALLDIR=\"$(prefix)\"  -DHAVE_CONFIG_H
 EXEEXT = .exe
-LDFLAGS =  -Wl,-s -Wl,--force-exe-suffix -Wl,--enable-auto-import -Wl,--enable-runtime-pseudo-reloc -Wl,--allow-multiple-definition -Wl,--enable-stdcall-fixup -LD:/Progra~1/GnuWin32/lib    $(VERSADD)
+LDFLAGS =  -Wl,-s -Wl,--force-exe-suffix -Wl,--enable-auto-import -Wl,--enable-runtime-pseudo-reloc -Wl,--allow-multiple-definition -Wl,--enable-stdcall-fixup -L/cygdrive/c/cygwin64/lib    $(VERSADD)
 LIBOBJS =  ${LIBOBJDIR}error$U.o
-LIBS =  -Wl,-s  -LD:/Progra~1/GnuWin32/lib  -lintl -lwsock32 -lole32 -luuid -lmsvcp60  
+LIBS =  -Wl,-s  -L/cygdrive/c/cygwin64/lib  -lintl -lwsock32 -lole32 -luuid -lmsvcp60  
 OBJEXT = o
 PACKAGE_NAME = patch
 PACKAGE_VERSION = 2.5.9
